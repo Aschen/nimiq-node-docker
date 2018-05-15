@@ -30,7 +30,8 @@ You still have to specify the network with environment variable even if it's spe
 #### /!\ Running a full node
 
 If you are running a full node, you have to provide valid certificates for your domain name.  
-Put the certificate in `cert.pem` and the private key in `key.pem`.
+Put the certificate in `cert.pem` and the private key in `key.pem`.  
+You can get free SSL certificate with Let's Encrypt : https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04
 
 ## Recipes
 
