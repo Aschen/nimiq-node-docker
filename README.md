@@ -2,7 +2,7 @@
 
 This is a autonomous container to run Nimiq core client.  
 
-The container will download a snapshot of the blockchain at startup.  
+The container will download a snapshot of the blockchain at startup. (See [here](https://aschen.ovh/nimiq)) 
 
 ## Configuration
 
