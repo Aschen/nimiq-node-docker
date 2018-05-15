@@ -1,0 +1,30 @@
+version: '3.1'
+
+services:
+
+  nimiq:
+    image: aschen/nimiq-node-docker
+    command: /core-master/start-nimiq.sh
+    restart: always
+    ports:
+      - "8443:8443"
+      - "8648:8648"
+      - "8649:8649"
+    volumes:
+      - ./start-nimiq.sh:/core-master/start-nimiq.sh
+      - ./configs:/core-master/configs
+      - ./cert.pem:/core-master/cert.pem
+      - ./key.pem:/core-master/key.pem
+      - nimiq-consensus:/nimiq-consensus
+    environment:
+      - POOL=${POOL:-}
+      - STATS=${STATS:-30}
+      - MINER_THREADS=${MINER_THREADS:-0}
+      - UV_THREADPOOL_SIZE=64
+      - HOSTNAME=${HOSTNAME:-}
+      - WALLET=${WALLET:-NQ488CKHBA242VR3N249N8MNJ5XX74DB5XJ8}
+      - NETWORK=${NETWORK:-test}
+      - CONFIG_FILE=${CONFIG_FILE:-}
+
+volumes:
+  nimiq-consensus:
