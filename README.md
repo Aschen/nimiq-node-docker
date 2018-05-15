@@ -15,6 +15,8 @@ Run your Nimiq container : `docker-compose up` (this will run a dumb full node o
 
 ## Configuration
 
+### Environment variables
+
 You can custom configuration by environment variables :
 
  - `POOL` : Connect to the specified pool (eg: `POOL=pool.nimiq.com:8444`)
@@ -24,7 +26,9 @@ You can custom configuration by environment variables :
  - `WALLET` : Wallet address to mine. Will generate a new one if blank. (eg: `WALLET=NQ488CKHBA242VR3N249N8MNJ5XX74DB5XJ8`)
  - `NETWORK` : Network to run the node on. Can be `test`, `dev`, `main` or `bounty`
 
-Or you can edit the configuration file `node.conf` and then specify the client to use it.  
+### Configuration files
+
+There is some configuration file examples in the `configs/` directory.  
 You still have to specify the network with environment variable even if it's specified in the configuration file : `NETWORK=main CONFIG_FILE=configs/smart-pool-miner.conf docker-compose up -d`
 
 #### /!\ Running a full node
