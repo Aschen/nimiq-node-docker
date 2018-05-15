@@ -5,7 +5,7 @@ CURRENT_CONSENSUS_PATH="$CONSENSUS_PATH/$NETWORK-full-consensus"
 
 
 if [ ! -f "$CURRENT_CONSENSUS_PATH/data.mdb" ]; then
-  curl https://aschen.ovh/nimiq/$NETWORK/$NETWORK-full-consensus.tar -o $NETWORK-full-consensus.tar
+  wget https://aschen.ovh/nimiq/$NETWORK/$NETWORK-full-consensus.tar -O $NETWORK-full-consensus.tar
   tar xf $NETWORK-full-consensus.tar -C $CONSENSUS_PATH/
 fi
 
@@ -23,8 +23,8 @@ if [ ! -z "$POOL" ]; then
   NIMIQ_COMMAND_LINE="$NIMIQ_COMMAND_LINE --pool $POOL "
 fi
 
-if [ ! -z "$HOSTNAME"]; then
-  NIMIQ_COMMAND_LINE="$NIMIQ_COMMAND_LINE --hostname $HOSTNAME --cert cert.pem --key key.pem"
+if [ ! -z "$HOSTNAME" ]; then
+  NIMIQ_COMMAND_LINE="$NIMIQ_COMMAND_LINE --host $HOSTNAME --cert cert.pem --key key.pem"
 else
   NIMIQ_COMMAND_LINE="$NIMIQ_COMMAND_LINE --dumb "
 fi

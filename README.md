@@ -2,7 +2,16 @@
 
 This is a autonomous container to run Nimiq core client.  
 
-The container will download a snapshot of the blockchain at startup. (See [here](https://aschen.ovh/nimiq)) 
+The container will download a snapshot of the blockchain at startup. (See [here](https://aschen.ovh/nimiq))
+
+## Get started
+
+Install Docker : https://docs.docker.com/install/  
+Install Docker-Compose : https://docs.docker.com/compose/install/  
+
+Clone this repository : `git clone https://github.com/aschen/nimiq-node-docker`  
+Run your Nimiq container : `docker-compose up` (this will run a dumb full node on test network)
+
 
 ## Configuration
 
