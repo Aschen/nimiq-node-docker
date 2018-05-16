@@ -3,11 +3,13 @@
 CONSENSUS_PATH=/nimiq-consensus
 CURRENT_CONSENSUS_PATH="$CONSENSUS_PATH/$NETWORK-full-consensus"
 
-npm install --unsafe
-
 if [ ! -f "$CURRENT_CONSENSUS_PATH/data.mdb" ]; then
   wget https://aschen.ovh/nimiq/$NETWORK/$NETWORK-full-consensus.tar -O $NETWORK-full-consensus.tar
   tar xf $NETWORK-full-consensus.tar -C $CONSENSUS_PATH/
+fi
+
+if [ "$RECOMPILE" == "yes" ]; then
+  npm install --unsafe
 fi
 
 if [ ! -f /core-master/$NETWORK-full-consensus ]; then
