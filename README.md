@@ -15,6 +15,8 @@ Run your Nimiq container : `docker-compose up` (this will run a dumb full node o
 
 ## Configuration
 
+You can either configure your Nimiq client with environment variables before the `docker-compose` command or by using a configuration file in the directory `configs/`.  
+
 ### Environment variables
 
 You can custom configuration by environment variables :
