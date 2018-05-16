@@ -16,6 +16,7 @@ services:
       - ./cert.pem:/core-master/cert.pem
       - ./key.pem:/core-master/key.pem
       - nimiq-consensus:/nimiq-consensus
+      - node-modules:/core-master/node_modules
     environment:
       - POOL=${POOL:-}
       - STATS=${STATS:-30}
@@ -28,3 +29,4 @@ services:
 
 volumes:
   nimiq-consensus:
+  node-modules:

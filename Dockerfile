@@ -7,5 +7,3 @@ RUN wget https://github.com/nimiq-network/core/archive/master.tar.gz \
     && tar xf ./master.tar.gz
 
 WORKDIR /core-master
-
-RUN npm install --unsafe
