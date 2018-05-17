@@ -27,6 +27,7 @@ You can custom configuration by environment variables :
  - `HOSTNAME` : Hostname of your full node. You must also provide valid certificates for your domain. Switch to dumb mode if blank. (eg: `HOSTNAME=nimiq.aschen.ovh`)
  - `WALLET` : Wallet address to mine. Will generate a new one if blank. (eg: `WALLET=NQ488CKHBA242VR3N249N8MNJ5XX74DB5XJ8`)
  - `NETWORK` : Network to run the node on. Can be `test`, `dev`, `main` or `bounty`
+ - `RECOMPILE` : Recompile the binaries to better mining performance. (eg: `RECOMPILE=yes`)
 
 ### Configuration files
 
@@ -37,6 +38,8 @@ You still have to specify the network with environment variable even if it's spe
 ## Recipes
 
 ### Run a miner
+
+Use the environment variable `RECOMPILE=yes` to enable better mining performance.  
 
 Run a solo miner on main network : 
  - `NETWORK=main MINER_THREADS=12 docker-compose up -d
