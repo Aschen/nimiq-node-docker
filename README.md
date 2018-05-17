@@ -42,7 +42,7 @@ You still have to specify the network with environment variable even if it's spe
 Use the environment variable `RECOMPILE=yes` to enable better mining performance.  
 
 Run a solo miner on main network : 
- - `NETWORK=main MINER_THREADS=12 docker-compose up -d
+ - `NETWORK=main MINER_THREADS=12 docker-compose up -d`
 
 Run a pool miner on main network : 
  - `NETWORK=main MINER_THREADS=12 POOL=pool.nimiq.com:8444 docker-compose up -d`
