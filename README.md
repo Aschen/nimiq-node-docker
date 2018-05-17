@@ -31,22 +31,34 @@ You can custom configuration by environment variables :
 ### Configuration files
 
 There is some configuration file examples in the `configs/` directory.  
-You still have to specify the network with environment variable even if it's specified in the configuration file : `NETWORK=main CONFIG_FILE=configs/smart-pool-miner.conf docker-compose up -d`
-
-#### /!\ Running a full node
-
-If you are running a full node, you have to provide valid certificates for your domain name.  
-Put the certificate in `cert.pem` and the private key in `key.pem`.  
-You can get free SSL certificate with Let's Encrypt : https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04
+You still have to specify the network with environment variable even if it's specified in the configuration file : 
+  - `NETWORK=main CONFIG_FILE=configs/smart-pool-miner.conf docker-compose up -d`
 
 ## Recipes
 
-Run a solo miner on main network : `NETWORK=main MINER_THREADS=12 docker-compose up -d`
+### Run a miner
 
-Run a pool miner on main network : `NETWORK=main MINER_THREADS=12 POOL=pool.nimiq.com:8444 docker-compose up -d`
+Run a solo miner on main network : 
+ - `NETWORK=main MINER_THREADS=12 docker-compose up -d
 
-Run a pool miner with predefined wallet : `NETWORK=main MINER_THREADS=12 POOL=pool.nimiq.com:8444 WALLET=NQ488CKHBA242VR3N249N8MNJ5XX74DB5XJ8 docker-compose up -d`
+Run a pool miner on main network : 
+ - `NETWORK=main MINER_THREADS=12 POOL=pool.nimiq.com:8444 docker-compose up -d`
 
-Run a full node without miner on main network : `NETWORK=main HOSTNAME=nimiq.aschen.ovh docker-compose up -d`
+Run a pool miner with predefined wallet : 
+ - `NETWORK=main MINER_THREADS=12 POOL=pool.nimiq.com:8444 WALLET=NQ488CKHBA242VR3N249N8MNJ5XX74DB5XJ8 docker-compose up -d`
 
-Run a solo miner on test network : `NETWORK=test MINER_THREADS=1 docker-compose up -d`
+Run a solo miner on test network : 
+ - `NETWORK=test MINER_THREADS=1 docker-compose up -d`
+
+### Run a full node
+
+If you are running a full node, you have to provide valid certificates for your domain name.  
+
+You can get free SSL certificate with Let's Encrypt : https://www.digitalocean.com/community/tutorials/how-to-use-certbot-standalone-mode-to-retrieve-let-s-encrypt-ssl-certificates
+
+After getting your certificate, create two symbolic links (for the certificate and the private key) from the letsencrypt folfder to this folder : 
+ - `ln -s /etc/letsencrypt/live/your.domain.com/fullchain.pem cert.pem`
+ - `ln -s /etc/letsencrypt/live/your.domain.com/privkey.pem key.pem`
+
+Then you can run your full node on the main using this command line :
+ - `NETWORK=main HOSTNAME=your.domain.com docker-compose up -d`
